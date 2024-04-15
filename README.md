@@ -20,12 +20,12 @@ cd ml-playground
 - [Attention is All You Need](https://arxiv.org/pdf/1706.03762.pdf)
 
 ### Courses and Videos
-- [3Blue1Brown - Neural networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
 - [3Blue1Brown - Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
+- [3Blue1Brown - Neural networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
 - [Mathematics for Machine Learning - Coursera](https://www.coursera.org/specializations/mathematics-for-machine-learning-and-data-science)
 - [Machine Learning Specialization - Coursera](https://www.coursera.org/specializations/machine-learning-introduction)
 - [IBM AI Engineer Professional Certificate - Coursera](https://www.coursera.org/professional-certificates/ai-engineer)
-- [Deep Learning for Computer Vision](https://www.youtube.com/playlist?list=PLW3u28VuDAHJNrf3JCgT0GG_rjFVz0-j9)
+- [Algebra 1M](https://www.youtube.com/playlist?list=PLW3u28VuDAHJNrf3JCgT0GG_rjFVz0-j9)
 - [Differential and Integral Calculus](https://www.youtube.com/playlist?list=PLW3u28VuDAHJymExTBCNnaI6TymzRGsUV)
 - [PyTorch for Deep Learning](https://www.youtube.com/watch?v=Z_ikDlimN6A)
 - [LLM Course Repository](https://github.com/mlabonne/llm-course)
@@ -35,6 +35,7 @@ cd ml-playground
 - [Andrej Karpathy - The spelled-out intro to neural networks and backpropagation: building micrograd](https://youtu.be/VMj-3S1tku0?si=f3eZ6xjExqj4bU6p)
 - [NLP Workshop - Olaf Janssen](https://olafjanssen.github.io/nlp-workshop/)
 - [Radu Mariescu-Istodor - Machine Learning Course](https://www.youtube.com/watch?v=fa3BE_VwyS4&list=PLB0Tybl0UNfYe9aJXfWw-Dw_4VnFrqRC4&pp=iAQB)
+- [Anti-hype LLM reading list](https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e)
 
 ## Tools and Libraries
 - [OpenAI Cookbook](https://cookbook.openai.com)
