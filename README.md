@@ -35,6 +35,7 @@ cd ml-playground
 - [Andrej Karpathy - The spelled-out intro to neural networks and backpropagation: building micrograd](https://youtu.be/VMj-3S1tku0?si=f3eZ6xjExqj4bU6p)
 - [NLP Workshop - Olaf Janssen](https://olafjanssen.github.io/nlp-workshop/)
 - [Radu Mariescu-Istodor - Machine Learning Course](https://www.youtube.com/watch?v=fa3BE_VwyS4&list=PLB0Tybl0UNfYe9aJXfWw-Dw_4VnFrqRC4&pp=iAQB)
+- [Anti-hype LLM reading list](https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e)
 
 ## Tools and Libraries
 - [OpenAI Cookbook](https://cookbook.openai.com)
