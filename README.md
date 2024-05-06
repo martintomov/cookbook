@@ -10,6 +10,9 @@ cd ml-playground
 
 ## Resources
 
+### Notes / Logs
+- [Keeping up with AGI](https://docs.google.com/document/d/e/2PACX-1vQD8IlBotGdBxp3BnXkSjk8bNZlPV_0EH9ZA6wHd5dNf-BLSiwXUinvgv8ZoBEnNyTCF-chWO30NRw0/pub)
+
 ### Books and Papers
 - [The Little Book of Deep Learning](https://fleuret.org/public/lbdl.pdf)
 - [Deep Learning](https://www.deeplearningbook.org/) by Ian Goodfellow, Yoshua Bengio, and Aaron Courville
