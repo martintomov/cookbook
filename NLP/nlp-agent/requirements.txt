@@ -1,3 +1,5 @@
 streamlit
-openai
 langchain
+openai
+tiktoken
+PyMuPDF
