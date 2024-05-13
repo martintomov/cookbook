@@ -1,0 +1,7 @@
+streamlit==1.32.2
+langchain==0.1.14
+langchain_community==0.0.31
+langchain-core
+langchain-openai==0.1.1
+chromadb==0.4.24
+pysqlite3-binary
