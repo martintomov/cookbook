@@ -10,6 +10,10 @@ cd ml-playground
 
 ## Resources
 
+### Repositories
+- [stas00/ml-engineering](https://github.com/stas00/ml-engineering)
+
+
 ### Notes / Logs
 - [Keeping up with AGI](https://docs.google.com/document/d/e/2PACX-1vQD8IlBotGdBxp3BnXkSjk8bNZlPV_0EH9ZA6wHd5dNf-BLSiwXUinvgv8ZoBEnNyTCF-chWO30NRw0/pub)
 - [Anti-hype LLM reading list](https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e)
@@ -45,7 +49,7 @@ cd ml-playground
 - [Andrej Karpathy - Let's build the GPT Tokenizer](https://youtu.be/zduSFxRajkE?si=KMezzHxohaHSIerp)
 - [Andrej Karpathy - The spelled-out intro to neural networks and backpropagation: building micrograd](https://youtu.be/VMj-3S1tku0?si=f3eZ6xjExqj4bU6p)
 - [NLP Workshop - Olaf Janssen](https://olafjanssen.github.io/nlp-workshop/)
-- [Radu Mariescu-Istodor - Machine Learning Course](https://www.youtube.com/watch?v=fa3BE_VwyS4&list=PLB0Tybl0UNfYe9aJXfWw-Dw_4VnFrqRC4&pp=iAQB)
+- [Radu Mariescu-Istodor - Machine Learning Course in JavaScript](https://www.youtube.com/watch?v=fa3BE_VwyS4&list=PLB0Tybl0UNfYe9aJXfWw-Dw_4VnFrqRC4&pp=iAQB)
 
 ## Tools and Libraries
 - [Hugging Face Transformers](https://huggingface.co/transformers/)
