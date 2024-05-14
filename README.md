@@ -19,6 +19,7 @@ cd ml-playground
 - [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/) by Andrew Ng (Available for free as a downloadable PDF)
 - [Bayesian Methods for Hackers](https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers) by Cameron Davidson-Pilon
 - [Pattern Recognition and Machine Learning](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) by Christopher M. Bishop
+- [ISL with Python](https://www.statlearning.com/)
 - [No bullshit guide to linear algebra](https://www.amazon.nl/No-bullshit-guide-linear-algebra/dp/0992001021) by Ivan Savov
 - [No bullshit guide to math and physics](https://www.amazon.com/No-bullshit-guide-math-physics/dp/0992001005) by Ivan Savov
 - [Data Science from Scratch: First Principles with Python, Edition: 2](https://www.amazon.nl/-/en/Joel-Grus/dp/1492041130) by Joel Grus
