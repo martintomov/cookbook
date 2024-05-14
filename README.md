@@ -73,7 +73,8 @@ cd ml-playground
 ### Roadmaps
 
 - [Machine Learning Roadmap](https://rentry.org/machine-learning-roadmap)
-  `<img width="1518" alt="Screenshot 2024-01-28 at 15 52 55" src="https://github.com/martintmv-git/ml-playground/assets/101264514/df66110b-a69a-4f36-85d1-06350a9aaabf">`
+
+<img width="1518" alt="Screenshot 2024-01-28 at 15 52 55" src="https://github.com/martintmv-git/ml-playground/assets/101264514/df66110b-a69a-4f36-85d1-06350a9aaabf">
 
 ## Contributing
 
