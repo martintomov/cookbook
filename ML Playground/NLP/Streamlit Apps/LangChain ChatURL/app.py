@@ -9,6 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
+# Enable tracing
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 def get_vectorstore_from_url(urls, api_key):
@@ -60,6 +61,10 @@ def get_response(user_query, code_mode=False):
         st.warning("API Key is not set. Please enter the API Key.")
         return "No API key provided."
     
+    if 'langchain_api_key' in st.session_state:
+        # Set LangChain API key for tracing if provided
+        os.environ["LANGCHAIN_API_KEY"] = st.session_state.langchain_api_key
+
     retriever_chain = get_context_retriever_chain(st.session_state.vector_store, st.session_state.api_key)
     conversation_rag_chain = get_conversational_rag_chain(retriever_chain)
     
@@ -112,9 +117,12 @@ if 'urls' not in st.session_state:
 with st.sidebar:
     st.title("Chat with URLs")
     st.header("Settings")
-    api_key = st.text_input("Enter API Key", type="password")
+    api_key = st.text_input("Enter OpenAI API Key", type="password")
     if api_key:
         st.session_state.api_key = api_key
+    langchain_api_key = st.text_input("Enter LangChain API Key (Optional)", type="password")
+    if langchain_api_key:
+        st.session_state.langchain_api_key = langchain_api_key
     option = st.selectbox('Select number of URLs to chat with...', ('1', '2', '3', '4', '5'))
     num_urls = int(option)
     urls = [st.text_input(f"URL {i+1}", value=st.session_state.urls[i]) for i in range(num_urls)]
@@ -146,7 +154,7 @@ if st.session_state.show_all_history:
     display_all_history()
 else:
     if 'api_key' not in st.session_state or not st.session_state.api_key:
-        st.info("Please enter the API Key to use the application.")
+        st.info("Please enter the OpenAI API Key to use the application.")
     elif any(not url for url in st.session_state.urls[:num_urls]):
         st.info("Please enter the website URLs to proceed.")
     else:
