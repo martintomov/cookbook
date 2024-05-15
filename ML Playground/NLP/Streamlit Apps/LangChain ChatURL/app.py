@@ -12,10 +12,10 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 # Enable tracing
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
-def get_vectorstore_from_url(urls, api_key):
+def get_vectorstore_from_url(url, api_key):
     with st.sidebar:
         with st.spinner('Loading the document...'):
-            loader = WebBaseLoader(urls)
+            loader = WebBaseLoader([url])
             document = loader.load()
         st.success('Document loaded!', icon="✅")
 
@@ -100,7 +100,7 @@ def display_all_history():
 
 # App configuration
 st.set_page_config(page_title="Chat with URLs", page_icon="💬")
-st.title("Chat with URLs")
+st.title("Chat with URLs 💬")
 
 # Initialize chat history if it doesn't exist
 if 'chat_history' not in st.session_state:
@@ -109,9 +109,9 @@ if 'chat_history' not in st.session_state:
 if 'all_chat_history' not in st.session_state:
     st.session_state.all_chat_history = []
 
-# Initialize URL inputs if they don't exist
-if 'urls' not in st.session_state:
-    st.session_state.urls = [""] * 5  # Initialize with 5 empty URLs
+# Initialize URL input if it doesn't exist
+if 'url' not in st.session_state:
+    st.session_state.url = ""
 
 # Sidebar configuration
 with st.sidebar:
@@ -123,10 +123,9 @@ with st.sidebar:
     langchain_api_key = st.text_input("Enter LangChain API Key (Optional)", type="password")
     if langchain_api_key:
         st.session_state.langchain_api_key = langchain_api_key
-    option = st.selectbox('Select number of URLs to chat with...', ('1', '2', '3', '4', '5'))
-    num_urls = int(option)
-    urls = [st.text_input(f"URL {i+1}", value=st.session_state.urls[i]) for i in range(num_urls)]
-    st.session_state.urls = urls
+
+    url = st.text_input("URL", value=st.session_state.url)
+    st.session_state.url = url
 
     if 'show_all_history' not in st.session_state:
         st.session_state.show_all_history = False
@@ -146,7 +145,7 @@ with st.sidebar:
     if st.button("Clear Knowledge"):
         st.session_state.pop("vector_store", None)
         st.session_state.pop("chat_history", None)
-        st.session_state.urls = [""] * num_urls  # Clear the URLs
+        st.session_state.url = ""  # Clear the URL
         st.rerun()
 
 # Main content area
@@ -155,11 +154,12 @@ if st.session_state.show_all_history:
 else:
     if 'api_key' not in st.session_state or not st.session_state.api_key:
         st.info("Please enter the OpenAI API Key to use the application.")
-    elif any(not url for url in st.session_state.urls[:num_urls]):
-        st.info("Please enter the website URLs to proceed.")
+    elif not st.session_state.url:
+        st.info("Please enter the website URL to proceed.")
     else:
-        if "vector_store" not in st.session_state:
-            st.session_state.vector_store = get_vectorstore_from_url(st.session_state.urls[:num_urls], st.session_state.api_key)
+        if "vector_store" not in st.session_state or st.session_state.url != st.session_state.vector_store_url:
+            st.session_state.vector_store = get_vectorstore_from_url(st.session_state.url, st.session_state.api_key)
+            st.session_state.vector_store_url = st.session_state.url
         user_query = st.chat_input("Type your message here...")
         if user_query:
             st.session_state.chat_history.append(HumanMessage(content=user_query))
