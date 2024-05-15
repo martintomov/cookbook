@@ -28,8 +28,8 @@ def get_vectorstore_from_url(urls, api_key):
         with st.spinner('Creating vectorstore from document chunks...'):
             embeddings = OpenAIEmbeddings(api_key=api_key)
             vector_store = Chroma.from_documents(document_chunks, embeddings)
-        st.success('Embeddings created and saved to vectorstore', icon="✅")
-        st.info("This vector store will take care of storing embedded data and perform vector search for you.")
+        st.success('Embeddings created and saved to vector store!', icon="✅")
+        st.info("The vector store will take care of storing embedded data and perform vector search.")
 
     return vector_store
 
@@ -44,7 +44,7 @@ def get_context_retriever_chain(vector_store, api_key):
     return create_history_aware_retriever(llm=llm, retriever=retriever, prompt=prompt)
 
 def get_conversational_rag_chain(retriever_chain):
-    llm = ChatOpenAI(temperature=0, api_key=st.session_state.api_key)  # Ensure API key is set
+    llm = ChatOpenAI(temperature=0, api_key=st.session_state.api_key)
     prompt = ChatPromptTemplate.from_messages([
         ("system", "Answer the user's question based on the below context:\n\n{context}."),
         ("system", "Also return the sources of your answer from the response metadata."),
@@ -80,7 +80,7 @@ with st.sidebar:
     st.header("Settings")
     api_key = st.text_input("Enter API Key", type="password")
     if api_key:
-        st.session_state.api_key = api_key  # Store API key in session state immediately after it's input
+        st.session_state.api_key = api_key
     option = st.selectbox('Select number of URLs to chat with...', ('1', '2', '3', '4', '5'))
     urls = [st.text_input(f"URL {i+1}") for i in range(int(option))]
 
@@ -97,10 +97,12 @@ else:
         st.session_state.chat_history.append(HumanMessage(content=user_query))
         response = get_response(user_query)
         st.session_state.chat_history.append(AIMessage(content=response))
-        for message in st.session_state.chat_history:
-            if isinstance(message, AIMessage):
-                with st.chat_message("AI"):
-                    st.markdown(message.content)
-            elif isinstance(message, HumanMessage):
-                with st.chat_message("Human"):
-                    st.markdown(message.content)
+    
+    # Display the chat history
+    for message in st.session_state.chat_history:
+        if isinstance(message, AIMessage):
+            with st.chat_message("AI"):
+                st.markdown(message.content)
+        elif isinstance(message, HumanMessage):
+            with st.chat_message("Human"):
+                st.markdown(message.content)
