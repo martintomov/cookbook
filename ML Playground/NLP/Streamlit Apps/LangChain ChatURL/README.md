@@ -89,15 +89,15 @@ The app is configured with a sidebar for API key input and URL input. It also in
 
 ### Example Query
 
-**User Query:** "What is the main topic of the document?"
-**URL:** "https://some.random.document"
-**Response:** The AI will provide a summary or relevant information from the document based on the input URL.
+**- User Query:** "What is the main topic of the document?"
+**- URL:** "https://some.random.document"
+**- Response:** The AI will provide a summary or relevant information from the document based on the input URL.
 
 ---
 
-**User Query:** "Generate a 3 page blog about NLP - ML"
-**URL:** "https://docusaurus.io/docs/blog"
-**Response:** To generate a 3-page blog about Natural Language Processing (NLP) and Machine Learning (ML) using Docusaurus, you can follow the steps below. This solution will create three separate Markdown files, each representing a page of the blog.
+**- User Query:** "Generate a 3 page blog about NLP - ML"
+**- URL:** "https://docusaurus.io/docs/blog"
+**- Response:** To generate a 3-page blog about Natural Language Processing (NLP) and Machine Learning (ML) using Docusaurus, you can follow the steps below. This solution will create three separate Markdown files, each representing a page of the blog.
 
 ## Deployment
 
