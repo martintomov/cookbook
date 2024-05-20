@@ -37,7 +37,8 @@ def update_routes():
         for node1, node2, data in subgraph.edges(data=True):
             routes.append({
                 'coordinates': [(G.nodes[node1]['y'], G.nodes[node1]['x']), (G.nodes[node2]['y'], G.nodes[node2]['x'])],
-                'color': transport_colors[mode]
+                'color': transport_colors[mode],
+                'mode': mode
             })
     
     logging.debug(f"Generated {len(routes)} routes.")

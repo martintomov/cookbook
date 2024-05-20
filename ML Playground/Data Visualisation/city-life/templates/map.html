@@ -27,11 +27,37 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        #controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .controlButton {
+            padding: 10px;
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div id="map"></div>
-    <div class="spinner" id="spinner"> Loading </div>
+    <div class="spinner" id="spinner"></div>
+    <div id="controls">
+        <div id="clearButton" class="controlButton">Clear Map</div>
+        <div id="allButton" class="controlButton">All</div>
+        <div id="walkButton" class="controlButton">Walk</div>
+        <div id="bikeButton" class="controlButton">Bike</div>
+        <div id="driveButton" class="controlButton">Drive</div>
+    </div>
     <script>
         var map = L.map('map').setView([51.4516, 5.4697], 13);
 
@@ -41,32 +67,29 @@
 
         var spinner = document.getElementById('spinner');
 
-        // Function to add routes to the map
+        var layers = {
+            'walk': L.layerGroup().addTo(map),
+            'bike': L.layerGroup().addTo(map),
+            'drive': L.layerGroup().addTo(map)
+        };
+
         function addRoutes(routes) {
             routes.forEach(function(route) {
-                L.polyline(route.coordinates, {color: route.color, weight: 2.5, opacity: 1}).addTo(map);
+                var layer = L.polyline(route.coordinates, {color: route.color, weight: 2.5, opacity: 1});
+                layers[route.mode].addLayer(layer);
             });
         }
 
-        // Function to handle double-click and update routes
         function addMarkerAndRoutes(e) {
             var latlng = e.latlng;
             var start_location = [latlng.lat, latlng.lng];
-            
-            // Clear existing layers
-            map.eachLayer(function(layer) {
-                if (!(layer instanceof L.TileLayer)) {
-                    map.removeLayer(layer);
-                }
-            });
-            
-            // Add new marker
+
+            clearMap();
+
             L.marker(start_location).addTo(map);
-            
-            // Show spinner
+
             spinner.style.display = 'block';
-            
-            // Make an AJAX request to update the map with new routes
+
             fetch(`/update_routes?lat=${latlng.lat}&lng=${latlng.lng}`)
                 .then(response => {
                     if (!response.ok) {
@@ -76,17 +99,39 @@
                 })
                 .then(data => {
                     addRoutes(data.routes);
-                    // Hide spinner
                     spinner.style.display = 'none';
                 })
                 .catch(error => {
                     console.error('Error fetching routes:', error);
-                    // Hide spinner in case of error
                     spinner.style.display = 'none';
                 });
         }
-        
+
+        function clearMap() {
+            Object.values(layers).forEach(layer => layer.clearLayers());
+        }
+
+        function filterRoutes(mode) {
+            if (mode === 'all') {
+                Object.values(layers).forEach(layer => map.addLayer(layer));
+            } else {
+                Object.keys(layers).forEach(key => {
+                    if (key === mode) {
+                        map.addLayer(layers[key]);
+                    } else {
+                        map.removeLayer(layers[key]);
+                    }
+                });
+            }
+        }
+
         map.on('dblclick', addMarkerAndRoutes);
+
+        document.getElementById('clearButton').addEventListener('click', clearMap);
+        document.getElementById('allButton').addEventListener('click', function() { filterRoutes('all'); });
+        document.getElementById('walkButton').addEventListener('click', function() { filterRoutes('walk'); });
+        document.getElementById('bikeButton').addEventListener('click', function() { filterRoutes('bike'); });
+        document.getElementById('driveButton').addEventListener('click', function() { filterRoutes('drive'); });
     </script>
 </body>
 </html>
