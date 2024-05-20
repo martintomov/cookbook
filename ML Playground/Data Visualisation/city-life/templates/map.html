@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>15 Minute City Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map { height: 100vh; }
+        .spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            z-index: 1000;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="spinner" id="spinner"> Loading </div>
+    <script>
+        var map = L.map('map').setView([51.4516, 5.4697], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(map);
+
+        var spinner = document.getElementById('spinner');
+
+        // Function to add routes to the map
+        function addRoutes(routes) {
+            routes.forEach(function(route) {
+                L.polyline(route.coordinates, {color: route.color, weight: 2.5, opacity: 1}).addTo(map);
+            });
+        }
+
+        // Function to handle double-click and update routes
+        function addMarkerAndRoutes(e) {
+            var latlng = e.latlng;
+            var start_location = [latlng.lat, latlng.lng];
+            
+            // Clear existing layers
+            map.eachLayer(function(layer) {
+                if (!(layer instanceof L.TileLayer)) {
+                    map.removeLayer(layer);
+                }
+            });
+            
+            // Add new marker
+            L.marker(start_location).addTo(map);
+            
+            // Show spinner
+            spinner.style.display = 'block';
+            
+            // Make an AJAX request to update the map with new routes
+            fetch(`/update_routes?lat=${latlng.lat}&lng=${latlng.lng}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    addRoutes(data.routes);
+                    // Hide spinner
+                    spinner.style.display = 'none';
+                })
+                .catch(error => {
+                    console.error('Error fetching routes:', error);
+                    // Hide spinner in case of error
+                    spinner.style.display = 'none';
+                });
+        }
+        
+        map.on('dblclick', addMarkerAndRoutes);
+    </script>
+</body>
+</html>
