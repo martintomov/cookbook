@@ -8,6 +8,10 @@ app = Flask(__name__)
 # Setup logging
 logging.basicConfig(level=logging.DEBUG)
 
+# Define Eindhoven boundary
+north, south, east, west = 51.55, 51.35, 5.60, 5.30
+bounding_box = [(north, west), (north, east), (south, east), (south, west), (north, west)]
+
 @app.route('/')
 def index():
     return render_template('map.html')
@@ -29,7 +33,7 @@ def update_routes():
     routes = []
     
     for mode in ['walk', 'bike', 'drive']:
-        G = ox.graph_from_point(start_location, network_type=mode, dist=10000, simplify=True)
+        G = ox.graph_from_bbox(north, south, east, west, network_type=mode, simplify=True)
         center_node = ox.distance.nearest_nodes(G, lng, lat)
         max_distance = travel_speed[mode] * 1000 / 60 * 15  # distance in meters for 15 minutes
         subgraph = nx.ego_graph(G, center_node, radius=max_distance, distance='length')

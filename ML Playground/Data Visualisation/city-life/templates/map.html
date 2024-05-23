@@ -59,7 +59,15 @@
         <div id="driveButton" class="controlButton">Drive</div>
     </div>
     <script>
-        var map = L.map('map').setView([51.4516, 5.4697], 13);
+        var north = 51.55, south = 51.35, east = 5.60, west = 5.30;
+        var bounds = L.latLngBounds([south, west], [north, east]);
+
+        var map = L.map('map', {
+            maxBounds: bounds,
+            maxBoundsViscosity: 1.0,
+            minZoom: 12,
+            maxZoom: 16
+        }).setView([51.45, 5.47], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19
@@ -132,6 +140,19 @@
         document.getElementById('walkButton').addEventListener('click', function() { filterRoutes('walk'); });
         document.getElementById('bikeButton').addEventListener('click', function() { filterRoutes('bike'); });
         document.getElementById('driveButton').addEventListener('click', function() { filterRoutes('drive'); });
+
+        // Prevent zooming out beyond the minZoom
+        map.on('zoomend', function() {
+            if (map.getZoom() < map.getMinZoom()) {
+                map.setZoom(map.getMinZoom());
+            }
+        });
+
+        // Prevent panning beyond bounds
+        map.on('drag', function() {
+            map.panInsideBounds(bounds, { animate: false });
+        });
+
     </script>
 </body>
 </html>
