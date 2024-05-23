@@ -22,7 +22,7 @@ This project is a Flask web application that visualizes routes for walking, biki
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/yourusername/15-minute-city-map.git
+    git clone https://github.com/martintmv-git/ml-playground/tree/main/ML%20Playground/Data%20Visualisation/city-life
     cd 15-minute-city-map
     ```
 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Minute City Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background-color: #e8e8e8;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .repository-link {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<a class="repository-link" href="https://github.com/martintmv-git/ml-playground/tree/main/ML%20Playground/Data%20Visualisation/city-life">Visit the repository on GitHub</a>
+
+<h1>15 Minute City Map</h1>
+<p>This project is a Flask web application that visualizes routes for walking, biking, and driving within a 15-minute travel distance in the Eindhoven area. The map is restricted to a 30km square around Eindhoven to ensure all calculations and visualizations are localized.</p>
+
+<h2>Features</h2>
+<ul>
+    <li>Interactive map centered on Eindhoven, Netherlands</li>
+    <li>Visualize routes for walking, biking, and driving</li>
+    <li>Routes are color-coded for easy differentiation</li>
+    <li>Map panning and zooming are restricted to a specific area around Eindhoven</li>
+    <li>"Walk" routes are always displayed on top of "bike" and "drive" routes</li>
+</ul>
+
+<h2>Technologies Used</h2>
+<ul>
+    <li>Flask</li>
+    <li>OSMnx</li>
+    <li>NetworkX</li>
+    <li>Leaflet.js</li>
+</ul>
+
+<h2>Installation</h2>
+<ol>
+    <li>
+        <strong>Clone the repository:</strong>
+        <pre><code>git clone https://github.com/martintmv-git/ml-playground/tree/main/ML%20Playground/Data%20Visualisation/city-life
+cd 15-minute-city-map</code></pre>
+    </li>
+    <li>
+        <strong>Create a virtual environment and activate it:</strong>
+        <pre><code>mkdir &lt;name&gt;
+cd &lt;name&gt;
+conda create --prefix ./env python=3.11    # choose python version
+conda activate ./env</code></pre>
+    </li>
+    <li>
+        <strong>Install the required packages:</strong>
+        <pre><code>pip install -r requirements.txt</code></pre>
+    </li>
+    <li>
+        <strong>Run the Flask application:</strong>
+        <pre><code>python app.py</code></pre>
+    </li>
+    <li>
+        <strong>Open your web browser and go to:</strong>
+        <pre><code>http://127.0.0.1:5000/</code></pre>
+    </li>
+</ol>
+
+<h2>Usage</h2>
+<ul>
+    <li>Double-click on the map to set a starting location. The routes for walking, biking, and driving will be calculated and displayed.</li>
+    <li>Use the control buttons on the top-right to filter the routes:
+        <ul>
+            <li>"Clear Map": Clear all routes from the map</li>
+            <li>"All": Show all routes</li>
+            <li>"Walk": Show only walking routes</li>
+            <li>"Bike": Show only biking routes</li>
+            <li>"Drive": Show only driving routes</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Project Structure</h2>
+<ul>
+    <li><code>app.py</code>: The main Flask application file.</li>
+    <li><code>templates/map.html</code>: The HTML file for the map visualization.</li>
+    <li><code>requirements.txt</code>: The Python dependencies required to run the application.</li>
+</ul>
+
+</body>
+</html>
