@@ -73,12 +73,22 @@
             maxZoom: 19
         }).addTo(map);
 
+        // Create custom panes for z-index control
+        map.createPane('walkPane');
+        map.createPane('bikePane');
+        map.createPane('drivePane');
+
+        // Set z-index for each pane
+        map.getPane('walkPane').style.zIndex = 650;
+        map.getPane('bikePane').style.zIndex = 640;
+        map.getPane('drivePane').style.zIndex = 630;
+
         var spinner = document.getElementById('spinner');
 
         var layers = {
-            'walk': L.layerGroup().addTo(map),
-            'bike': L.layerGroup().addTo(map),
-            'drive': L.layerGroup().addTo(map)
+            'walk': L.layerGroup({pane: 'walkPane'}).addTo(map),
+            'bike': L.layerGroup({pane: 'bikePane'}).addTo(map),
+            'drive': L.layerGroup({pane: 'drivePane'}).addTo(map)
         };
 
         function addRoutes(routes) {
@@ -122,6 +132,9 @@
         function filterRoutes(mode) {
             if (mode === 'all') {
                 Object.values(layers).forEach(layer => map.addLayer(layer));
+                // Re-add walk layer last to ensure it is on top
+                map.removeLayer(layers['walk']);
+                map.addLayer(layers['walk']);
             } else {
                 Object.keys(layers).forEach(key => {
                     if (key === mode) {
@@ -152,6 +165,9 @@
         map.on('drag', function() {
             map.panInsideBounds(bounds, { animate: false });
         });
+
+        // Ensure walk layer is always on top
+        layers['walk'].bringToFront();
 
     </script>
 </body>
