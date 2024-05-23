@@ -20,38 +20,29 @@ This project is a Flask web application that visualizes routes for walking, biki
 ## Installation
 
 1. **Clone the repository:**
-
-    ```sh
-    git clone https://github.com/martintmv-git/ml-playground/tree/main/ML%20Playground/Data%20Visualisation/city-life
-    cd 15-minute-city-map
-    ```
-
 2. **Create a virtual environment and activate it:**
 
-    ```sh
-    mkdir <name>
-    cd <name>
-    conda create --prefix ./env python=3.11    # choose python version
-    conda activate ./env
-    ```
-
+   ```sh
+   mkdir <name>
+   cd <name>
+   conda create --prefix ./env python=3.11    # choose python version
+   conda activate ./env
+   ```
 3. **Install the required packages:**
 
-    ```sh
-    pip install -r requirements.txt
-    ```
-
+   ```sh
+   pip install -r requirements.txt
+   ```
 4. **Run the Flask application:**
 
-    ```sh
-    python app.py
-    ```
-
+   ```sh
+   python app.py
+   ```
 5. **Open your web browser and go to:**
 
-    ```
-    http://127.0.0.1:5000/
-    ```
+   ```
+   http://127.0.0.1:5000/
+   ```
 
 ## Usage
 
