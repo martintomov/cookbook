@@ -1,12 +1,12 @@
-# ml-playground
+# cookbook 👨🏻‍🍳
 
-This repository aims to provide a comprehensive collection of resources and tools for anyone interested in machine learning. It serves as a learning platform as well as a reference point for advanced topics in the field.
+This repository aims to provide a comprehensive collection of ML models, notebooks, implemented research papers, resources and tools for anyone interested in machine learning and deep learning. It serves as a learning platform as well as a reference point for advanced topics in the field.
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/martintmv-git/ml-playground.git
-cd ml-playground
+git clone https://github.com/martintmv-git/cookbook.git
+cd cookbook
 ```
 
 ## Resources
@@ -17,6 +17,7 @@ cd ml-playground
 
 ### Notes / Logs
 
+- [ml stash](https://arc.net/e/D242E263-31FD-4CF9-A2D5-B67519C049AF)
 - [Keeping up with AGI](https://docs.google.com/document/d/e/2PACX-1vQD8IlBotGdBxp3BnXkSjk8bNZlPV_0EH9ZA6wHd5dNf-BLSiwXUinvgv8ZoBEnNyTCF-chWO30NRw0/pub)
 - [Anti-hype LLM reading list](https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e)
 
