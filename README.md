@@ -1,6 +1,6 @@
 # cookbook 👨🏻‍🍳
 
-This repository aims to provide a comprehensive collection of notebooks, implemented research papers and resources for anyone interested in machine learning and deep learning. It serves as a learning platform as well as a reference point for advanced topics in the field. Educational purposes only.
+Collection of notebooks, implemented research papers and resources for anyone interested in machine learning and deep learning. Educational purposes only.
 
 ## Quick Start
 
@@ -11,7 +11,7 @@ cd cookbook
 
 ## Resources
 
-### Notes / Logs
+### Notes
 
 - [ml stash](https://arc.net/e/D242E263-31FD-4CF9-A2D5-B67519C049AF)
 - [Keeping up with AGI](https://docs.google.com/document/d/e/2PACX-1vQD8IlBotGdBxp3BnXkSjk8bNZlPV_0EH9ZA6wHd5dNf-BLSiwXUinvgv8ZoBEnNyTCF-chWO30NRw0/pub)
@@ -19,12 +19,11 @@ cd cookbook
 
 ### Books
 
-#### 👨🏻‍🍳 Currently Reading - [The Little Book of Deep Learning](https://fleuret.org/public/lbdl.pdf)
-
 - [x] [The Hundred-Page Machine Learning Book](https://themlbook.com) by Andriy Burkov
 - [x] [Machine Learning Engineering](https://leanpub.com/MLE) by Andriy Burkov
 - [x] [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen
 - [x] [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/) by Andrew Ng (Available for free as a downloadable PDF)
+- [ ] [The Little Book of Deep Learning](https://fleuret.org/public/lbdl.pdf) by François Fleuret
 - [ ] [Bayesian Methods for Hackers](https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers) by Cameron Davidson-Pilon
 - [ ] [Pattern Recognition and Machine Learning](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) by Christopher M. Bishop
 - [ ] [ISL with Python](https://www.statlearning.com/)
@@ -51,15 +50,5 @@ cd cookbook
 - [x] [NLP Workshop - Olaf Janssen](https://olafjanssen.github.io/nlp-workshop/)
 - [ ] [LLM Course Repository](https://github.com/mlabonne/llm-course)
 - [ ] [Radu Mariescu-Istodor - Machine Learning Course in JavaScript](https://www.youtube.com/watch?v=fa3BE_VwyS4&list=PLB0Tybl0UNfYe9aJXfWw-Dw_4VnFrqRC4&pp=iAQB)
-
-### Roadmaps
-
-- [Machine Learning Roadmap](https://rentry.org/machine-learning-roadmap)
-
-<img width="1518" alt="Screenshot 2024-01-28 at 15 52 55" src="https://github.com/martintmv-git/ml-playground/assets/101264514/df66110b-a69a-4f36-85d1-06350a9aaabf">
-
-## Contributing
-
-Contributions are welcome! Just open a pull request and we'll review it together.
 
 <img width="1518" alt="Screenshot 2024-01-28 at 15 52 55" src="https://github.com/martintmv-git/ai-advanced-prep/assets/101264514/e9281f03-a89a-4951-a206-b1dcfc2e308e">
